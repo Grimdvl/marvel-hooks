@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect, useRef, useCallback} from 'react';
 import PropTypes from 'prop-types';
 
 import Spinner from '../spinner/Spinner';
@@ -18,16 +18,29 @@ const CharList = (props) => {
 
     const marvelService = new MarvelService();
 
-    useEffect(() => {
-        onRequest();
-    }, [marvelService]);
+    //код из урока
+    // useEffect(() => {
+    //     onRequest();
+    // }, []);
 
-    const onRequest = (offset) => {
+    // const onRequest = (offset) => {
+    //     onCharListLoading();
+    //     marvelService.getAllCharacters(offset)
+    //         .then(onCharListLoaded)
+    //         .catch(onError)
+    // }
+
+    //код что бы нне ругался линтер
+    const onRequest = useCallback((offset) => {
         onCharListLoading();
         marvelService.getAllCharacters(offset)
             .then(onCharListLoaded)
-            .catch(onError)
-    }
+            .catch(onError);
+    }, [marvelService]);
+
+    useEffect(() => {
+        onRequest(offset);
+    }, [onRequest, offset]);
 
     const onCharListLoading = () => {
         setNewItemLoading(true);
