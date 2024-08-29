@@ -20,7 +20,7 @@ const CharList = (props) => {
 
     useEffect(() => {
         onRequest();
-    }, [])
+    }, [marvelService]);
 
     const onRequest = (offset) => {
         onCharListLoading();
