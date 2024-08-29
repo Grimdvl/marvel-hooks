@@ -13,7 +13,7 @@
     "react-scripts": "^5.0.1",
     "web-vitals": "^1.0.1"
   },
-  "homepage": "https://Grimdvl.github.io/Marvel",
+  "homepage": "https://Grimdvl.github.io/marvel-hooks",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
