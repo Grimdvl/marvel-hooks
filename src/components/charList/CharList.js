@@ -16,30 +16,19 @@ const CharList = (props) => {
     const [offset, setOffset] = useState(1541);
     const [charEnded, setCharEnded] = useState(false);
 
-    //код из урока
-    // const marvelService = new MarvelService();
-    // useEffect(() => {
-    //     onRequest();
-    // }, []);
-    // const onRequest = (offset) => {
-    //     onCharListLoading();
-    //     marvelService.getAllCharacters(offset)
-    //         .then(onCharListLoaded)
-    //         .catch(onError)
-    // }
+    /* eslint-disable */
+    const marvelService = new MarvelService();
 
-    //код что бы нне ругался линтер
-    const onRequest = useCallback((offset) => {
-        const marvelService = new MarvelService();
+    useEffect(() => {
+        onRequest();
+    }, []);
+    /* eslint-enable */
+    const onRequest = (offset) => {
         onCharListLoading();
         marvelService.getAllCharacters(offset)
             .then(onCharListLoaded)
-            .catch(onError);
-    }, []);
-
-    useEffect(() => {
-        onRequest(offset);
-    }, [onRequest, offset]);
+            .catch(onError)
+    }
 
     const onCharListLoading = () => {
         setNewItemLoading(true);
