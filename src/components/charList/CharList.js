@@ -18,11 +18,9 @@ const CharList = (props) => {
 
     //код из урока
     // const marvelService = new MarvelService();
-
     // useEffect(() => {
     //     onRequest();
     // }, []);
-
     // const onRequest = (offset) => {
     //     onCharListLoading();
     //     marvelService.getAllCharacters(offset)
