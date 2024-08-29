@@ -16,9 +16,9 @@ const CharList = (props) => {
     const [offset, setOffset] = useState(1541);
     const [charEnded, setCharEnded] = useState(false);
 
-    const marvelService = new MarvelService();
-
     //код из урока
+    // const marvelService = new MarvelService();
+
     // useEffect(() => {
     //     onRequest();
     // }, []);
@@ -32,11 +32,12 @@ const CharList = (props) => {
 
     //код что бы нне ругался линтер
     const onRequest = useCallback((offset) => {
+        const marvelService = new MarvelService();
         onCharListLoading();
         marvelService.getAllCharacters(offset)
             .then(onCharListLoaded)
             .catch(onError);
-    }, [marvelService]);
+    }, []);
 
     useEffect(() => {
         onRequest(offset);
