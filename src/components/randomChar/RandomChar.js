@@ -7,11 +7,10 @@ import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
 
 const RandomChar = () => {
-
     const [char, setChar] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-
+    /* eslint-disable */
     const marvelService = new MarvelService();
 
     useEffect(() => {
@@ -22,7 +21,7 @@ const RandomChar = () => {
             clearInterval(timerId)
         }
     }, [])
-
+    /* eslint-enable */
     const onCharLoaded = (char) => {
         setLoading(false);
         setChar(char);

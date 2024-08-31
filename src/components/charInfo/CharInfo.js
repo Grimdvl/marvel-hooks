@@ -9,17 +9,16 @@ import Skeleton from '../skeleton/Skeleton';
 import './charInfo.scss';
 
 const CharInfo = (props) => {
-
     const [char, setChar] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-
+    /* eslint-disable */
     const marvelService = new MarvelService();
 
     useEffect(() => {
         updateChar();
     }, [props.charId])
-
+    /* eslint-enable */
     const updateChar = () => {
         const {charId} = props;
         if(!charId) {

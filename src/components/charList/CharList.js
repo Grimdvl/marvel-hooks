@@ -15,7 +15,6 @@ const CharList = (props) => {
     const [newItemLoading, setNewItemLoading] = useState(false);
     const [offset, setOffset] = useState(1541);
     const [charEnded, setCharEnded] = useState(false);
-
     /* eslint-disable */
     const marvelService = new MarvelService();
 
