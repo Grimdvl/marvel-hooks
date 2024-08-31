@@ -54,7 +54,6 @@ const CharList = (props) => {
 
     const itemRefs = useRef([]);
 
-
     const focusOnItem = (id) => {
         itemRefs.current.forEach(item => item.classList.remove('char__item_selected'));
         itemRefs.current[id].classList.add('char__item_selected');
