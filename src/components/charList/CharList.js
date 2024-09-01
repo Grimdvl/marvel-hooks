@@ -4,20 +4,19 @@ import PropTypes from 'prop-types';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import useMarvelService from '../../services/MarvelService';
-
 import './charList.scss';
 
 const CharList = (props) => {
-    const [charList, setCharlist] = useState([]);
+
+    const [charList, setCharList] = useState([]);
     const [newItemLoading, setNewItemLoading] = useState(false);
-    const [offset, setOffset] = useState(1541);
+    const [offset, setOffset] = useState(210);
     const [charEnded, setCharEnded] = useState(false);
     /* eslint-disable */
     const {loading, error, getAllCharacters} = useMarvelService();
-
     useEffect(() => {
         onRequest(offset, true);
-    }, []);
+    }, [])
     /* eslint-enable */
     const onRequest = (offset, initial) => {
         initial ? setNewItemLoading(false) : setNewItemLoading(true);
@@ -31,7 +30,7 @@ const CharList = (props) => {
             ended = true;
         }
 
-        setCharlist(charList => [...charList, ...newCharList]);
+        setCharList(charList => [...charList, ...newCharList]);
         setNewItemLoading(newItemLoading => false);
         setOffset(offset => offset + 9);
         setCharEnded(charEnded => ended);
@@ -59,8 +58,8 @@ const CharList = (props) => {
                     ref={el => itemRefs.current[i] = el}
                     key={item.id}
                     onClick={() => {
-                        props.onCharSelected(item.id)
-                        focusOnItem(i)
+                        props.onCharSelected(item.id);
+                        focusOnItem(i);
                     }}
                     onKeyPress={(e) => {
                         if (e.key === ' ' || e.key === "Enter") {

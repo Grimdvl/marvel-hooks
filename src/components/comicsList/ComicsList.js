@@ -1,7 +1,7 @@
 import './comicsList.scss';
 import uw from '../../resources/img/UW.png';
 import xMen from '../../resources/img/x-men.png';
-
+    /* eslint-disable */
 const ComicsList = () => {
     return (
         <div className="comics__list">
@@ -69,5 +69,5 @@ const ComicsList = () => {
         </div>
     )
 }
-
+    /* eslint-enable */
 export default ComicsList;
