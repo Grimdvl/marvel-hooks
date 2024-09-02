@@ -6,13 +6,13 @@ import {MainPage, ComicsPage, Page404} from '../pages'
 
 const App = () => {
     return (
-        <Router>
+        <Router basename="/marvel-hooks">
             <div className="app">
                 <AppHeader/>
                 <main>
                     <Routes>
-                        <Route path="/marvel-hooks" element={<MainPage/>}/>
-                        <Route path="/marvel-hooks/comics" element={<ComicsPage/>}/>
+                        <Route path="/" element={<MainPage/>}/>
+                        <Route path="/comics" element={<ComicsPage/>}/>
                         <Route path="*" element={<Page404/>}/>
                     </Routes>
                 </main>
