@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import PropTypes from 'prop-types';
 import AppHeader from "../appHeader/AppHeader";
-import {MainPage, ComicsPage} from '../pages'
+import {MainPage, ComicsPage, Page404} from '../pages'
 
 const App = () => {
     return (
@@ -10,14 +10,11 @@ const App = () => {
             <div className="app">
                 <AppHeader/>
                 <main>
-                    <Switch>
-                        <Route exact path="/marvel-hooks">
-                            <MainPage/>
-                        </Route>
-                        <Route exact path="/marvel-hooks/comics">
-                            <ComicsPage/>
-                        </Route>
-                    </Switch>
+                    <Routes>
+                        <Route path="/marvel-hooks" element={<MainPage/>}/>
+                        <Route path="/marvel-hooks/comics" element={<ComicsPage/>}/>
+                        <Route path="*" element={<Page404/>}/>
+                    </Routes>
                 </main>
             </div>
         </Router>

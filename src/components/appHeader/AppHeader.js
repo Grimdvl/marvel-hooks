@@ -12,9 +12,14 @@ const AppHeader = () => {
             </h1>
             <nav className="app__menu">
                 <ul>
-                    <li><NavLink exact activeStyle={{'color': '#9f0013'}} to="/marvel-hooks">Characters</NavLink></li>
+                    <li><NavLink
+                    end
+                    style={({isActive}) => ({color: isActive ? '#9f0013' : 'inherit'})}
+                    to="/marvel-hooks">Characters</NavLink></li>
                     /
-                    <li><NavLink exact activeStyle={{'color': '#9f0013'}} to="/marvel-hooks/comics">Comics</NavLink></li>
+                    <li><NavLink
+                    end
+                    style={({isActive}) => ({color: isActive ? '#9f0013' : 'inherit'})} to="/marvel-hooks/comics">Comics</NavLink></li>
                 </ul>
             </nav>
         </header>
