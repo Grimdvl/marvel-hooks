@@ -54,7 +54,7 @@ const ComicsList = (props) => {
                             props.onCharSelected(item.id);
                         }
                     }}>
-                    <a href="#">
+                    <a href="https://grimdvl.github.io/marvel-hooks/">
                         <img src={item.thumbnail}
                              alt={item.title}
                              className="comics__item-img"
