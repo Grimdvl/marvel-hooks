@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage'
@@ -38,30 +39,13 @@ const ComicsList = (props) => {
 
     function renderItems(arr) {
         const items = arr.map((item, i) => {
-            let imgStyle = {'objectFit' : 'cover'};
-            if (item.thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
-                imgStyle = {'objectFit' : 'unset'};
-            }
             return (
-                <li className="comics__item"
-                    tabIndex={0}
-                    key={item.id}
-                    onClick={() => {
-                        props.onComicsSelected(item.id);
-                    }}
-                    onKeyPress={(e) => {
-                        if (e.key === ' ' || e.key === "Enter") {
-                            props.onCharSelected(item.id);
-                        }
-                    }}>
-                    <a href="https://grimdvl.github.io/marvel-hooks/">
-                        <img src={item.thumbnail}
-                             alt={item.title}
-                             className="comics__item-img"
-                             style={imgStyle}/>
+                <li className="comics__item" key={i}>
+                    <Link to={`/comics/${item.id}`}>
+                        <img src={item.thumbnail} alt={item.title} className="comics__item-img"/>
                         <div className="comics__item-name">{item.title}</div>
-                        <div className="comics__item-price">{item.prices}$</div>
-                    </a>
+                        <div className="comics__item-price">{item.price}</div>
+                    </Link>
                 </li>
             )
         });
