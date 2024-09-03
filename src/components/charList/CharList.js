@@ -14,6 +14,7 @@ const CharList = (props) => {
     const [charEnded, setCharEnded] = useState(false);
     /* eslint-disable */
     const {loading, error, getAllCharacters} = useMarvelService();
+    
     useEffect(() => {
         onRequest(offset, true);
     }, [])
