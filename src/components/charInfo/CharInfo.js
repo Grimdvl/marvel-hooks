@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import useMarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
@@ -9,7 +10,6 @@ import Skeleton from '../skeleton/Skeleton';
 import './charInfo.scss';
 
 const CharInfo = (props) => {
-
     const [char, setChar] = useState(null);
     /* eslint-disable */
     const {loading, error, getCharacter, clearError} = useMarvelService();
@@ -17,6 +17,7 @@ const CharInfo = (props) => {
     useEffect(() => {
         updateChar()
     }, [props.charId])
+
     /* eslint-enable */
     const updateChar = () => {
         const {charId} = props;
@@ -83,9 +84,11 @@ const View = ({char}) => {
                         // eslint-disable-next-line
                         if (i > 9) return;
                         return (
-                            <li key={i} className="char__comics-item">
-                                {item.name}
-                            </li>
+                            <Link to={`/comics/${item.resourceURI.split('/').pop()}`} key={i}>
+                                <li className="char__comics-item">
+                                    {item.name}
+                                </li>
+                            </Link>
                         )
                     })
                 }                
