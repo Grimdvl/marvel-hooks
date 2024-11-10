@@ -10,12 +10,19 @@ import AppBanner from "../appBanner/AppBanner";
 const SinglePage = ({Component, dataType}) => {
     const {id} = useParams();
     const [data, setData] = useState(null);
-    const {loading, error, getComic, getCharacter, clearError, process, setProcess} = useMarvelService();
+    const {
+        // loading,
+        // error,
+        getComic,
+        getCharacter,
+        clearError,
+        process,
+        setProcess} = useMarvelService();
 
     // Используем useCallback, чтобы избежать повторного создания функции
     const updateData = useCallback(() => {
         clearError();
-
+    
         switch (dataType) {
             case 'comic':
                 getComic(id)
@@ -30,7 +37,8 @@ const SinglePage = ({Component, dataType}) => {
             default:
                 console.warn('Unknown data type');
         }
-    }, [id, dataType, clearError, getComic, getCharacter]);
+    }, [id, dataType, clearError, getComic, getCharacter, setProcess]); // Добавлено setProcess
+    
 
     useEffect(() => {
         updateData();
