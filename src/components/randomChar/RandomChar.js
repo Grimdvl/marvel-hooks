@@ -8,7 +8,13 @@ import mjolnir from '../../resources/img/mjolnir.png';
 const RandomChar = () => {
     /* eslint-disable */
     const [char, setChar] = useState(null);
-    const {loading, error, getCharacter, clearError, process, setProcess} = useMarvelService();
+    const {
+        // loading,
+        // error,
+        getCharacter,
+        clearError,
+        process,
+        setProcess} = useMarvelService();
 
     useEffect(() => {
         updateChar();
@@ -58,8 +64,8 @@ const RandomChar = () => {
     )
 }
 
-const View = ({char}) => {
-    const {name, description, thumbnail, homepage, wiki} = char;
+const View = ({data}) => {
+    const {name, description, thumbnail, homepage, wiki} = data;
     let imgStyle = {'objectFit' : 'cover'};
     if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
         imgStyle = {'objectFit' : 'contain'};
