@@ -2,6 +2,8 @@
 
 .button {
     min-width: 101px;
+    position: relative;
+    z-index: 2;
     color: #fff;
     text-align: center;
     text-transform: uppercase;

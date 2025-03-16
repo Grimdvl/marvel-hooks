@@ -32,7 +32,7 @@ const MainPage = () => {
                 <ErrorBoundary>
                     <CharList onCharSelected={onCharSelected}/>
                 </ErrorBoundary>
-                <div>
+                <div className="char__wrapper">
                     <ErrorBoundary>
                         <CharInfo charId={selectedChar}/>
                     </ErrorBoundary>
